@@ -1,47 +1,47 @@
-var whatBrowser = {
+var whatBrowser = new Object();
 	// Opera 8.0+
-	isOpera: function() {
-    var r = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-    return r;
-	}
+	whatBrowser.isOpera=function() {
+	    var r = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	    return r;
+	};
 
 	// Firefox 1.0+
-	isFirefox: function() {
-    var r = typeof InstallTrigger !== 'undefined';
-    return r;
-	}
+	whatBrowser.isFirefox= function() {
+	    var r = typeof InstallTrigger !== 'undefined';
+	    return r;
+	};
 
 	// Safari 3.0+ "[object HTMLElementConstructor]" 
-	isSafari: function() {
-    var r = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-    return r;
-	}
+	whatBrowser.isSafari= function() {
+	    var r = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+	    return r;
+	};
 
 	// Internet Explorer 6-11
-	isIE: function() {
-    var r = /*@cc_on!@*/false || !!document.documentMode;
-    return r;
-	}
+	whatBrowser.isIE= function() {
+	    var r = /*@cc_on!@*/false || !!document.documentMode;
+	    return r;
+	};
 
 	// Edge 20+
-	isEdge: function() {
+	whatBrowser.isEdge= function() {
 		var r = !isIE && !!window.StyleMedia;
-    return r;
-	}
+		return r;
+	};
 
 	// Chrome 1+
-	isChrome: function() {
+	whatBrowser.isChrome= function() {
 		var r = !!window.chrome;
-    return r;
-	}
+		return r;
+	};
 
 	// Blink engine detection
-	isBlink: function() {
+	whatBrowser.isBlink= function() {
 		var r = (isChrome || isOpera) && !!window.CSS;
-    return (r);
-	}
+		return (r);
+	};
 
-	debug: function() {
+	whatBrowser.debug= function() {
 		console.log("Opera - " + this.isOpera());
 		console.log("Firefox - " + this.isFirefox());
 		console.log("Safari - " + this.isSafari());
@@ -49,5 +49,4 @@ var whatBrowser = {
 		console.log("Edge - " + this.isEdge());
 		console.log("Chrome - " + this.isChrome());
 		console.log("Blink - " + this.isBlink());
-	}
-}
+	};
