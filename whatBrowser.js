@@ -18,12 +18,15 @@ var whatBrowser = {
   isChrome : function(){return( !!window.chrome; );}
 
   // Blink engine detection
-  var isBlink = function(){return((isChrome || isOpera) && !!window.CSS;);}
-  console.log("Opera - " + isOpera);
-  console.log("Firefox - " + isFirefox);
-  console.log("Safari - " + isSafari);
-  console.log("IE - " + isIE);
-  console.log("Edge - " + isEdge);
-  console.log("Chrome - " + isChrome);
-  console.log("Blink - " + isBlink);
+  isBlink : function(){return((isChrome || isOpera) && !!window.CSS;);}
+
+  debug : function() {
+    console.log("Opera - " + this.isOpera());
+    console.log("Firefox - " + this.isFirefox());
+    console.log("Safari - " + this.isSafari());
+    console.log("IE - " + this.isIE());
+    console.log("Edge - " + this.isEdge());
+    console.log("Chrome - " + this.isChrome());
+    console.log("Blink - " + this.isBlink());
+  }
 }
